@@ -1,40 +1,49 @@
-import { Helmet } from 'react-helmet'
-import Cookies from 'js-cookie'
+import React, { useEffect, useState } from 'react'
+import { get, set } from 'local-storage'
 
-// Components
-import FullLayout from './Full'
-import MainLayout from './Main'
+// Pages & Components
+import Sidebar from './Sidebar'
+import AlertConnectDatabase from '../components/Alert/Connect-database'
+import Tire from '../views/Tire'
+import Alloy from '../views/Alloy'
+import Report from '../views/Report'
+import Setting from '../views/Setting'
 
-const CoreLayout = ({ isAuth, layout, children }) => {
-  let layoutComponent = <FullLayout>{children}</FullLayout>
+// export interface LayoutProps {
+//   children: JSX.Element;
+// }
 
-  // route require authentication
-  if (isAuth) {
-    const userAuth = Cookies.get('user')
+const Layout = () => {
+  const [currentPage, setCurrentPage] = useState('tire')
+  const [anchor, setAnchor] = useState('')
 
-    // check user authentication (Login)
-    if (userAuth) {
-      if (layout === 'main') {
-        layoutComponent = <MainLayout>{children}</MainLayout>
-      } else if (layout === 'full') {
-        layoutComponent = <FullLayout>{children}</FullLayout>
-      }
-    } else {
-      window.location.replace('/login')
-    }
-  } else if (layout === 'main') {
-    layoutComponent = <MainLayout>{children}</MainLayout>
-  } else if (layout === 'full') {
-    layoutComponent = <FullLayout>{children}</FullLayout>
+  const handleRouter = data => {
+    set('current-page', data.page)
+    set('current-anchor', data.anchor || '')
+    setCurrentPage(data.page)
+    setAnchor(data.anchor ? data.anchor : '')
   }
+
+  useEffect(() => {
+    setCurrentPage(get('current-page'))
+    setAnchor(get('current-anchor'))
+  }, [])
+
   return (
     <div>
-      <Helmet>
-        <title>Edit Title in Layout Folder</title>
-      </Helmet>
-      {layoutComponent}
+      <Sidebar currentPage={currentPage} handleRouter={handleRouter} />
+      <div className="view-wrapper">
+        <AlertConnectDatabase handleRouter={handleRouter} />
+        <div>
+          {/* {currentPage === 'home' ? <Home /> : null} */}
+          {currentPage === 'tire' ? <Tire /> : null}
+          {currentPage === 'alloy' ? <Alloy /> : null}
+          {currentPage === 'report' ? <Report /> : null}
+          {currentPage === 'setting' ? <Setting anchor={anchor} /> : null}
+        </div>
+      </div>
     </div>
   )
 }
 
-export default CoreLayout
+export default Layout

@@ -1,0 +1,11 @@
+form {
+  &.form-tool-right {
+    justify-content: flex-end;
+    gap: 5px;
+  }
+}
+
+.form-control {
+  font-size: 1.25rem;
+  height: calc(1.5em + 0.4rem + 2px);
+}

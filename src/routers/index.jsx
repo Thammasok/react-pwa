@@ -1,8 +1,14 @@
 // Routes
-import todoRouter from './Todo'
-import authRouter from './Auth'
 import homeRouter from './Home'
+import alloyRouter from './Alloy'
+import tireRouter from './Tire'
+import settingRouter from './Setting'
 
-const mainRouter = [...todoRouter, ...homeRouter, ...authRouter]
+const mainRouter = [
+  ...alloyRouter,
+  ...tireRouter,
+  ...settingRouter,
+  ...homeRouter
+]
 
 export default mainRouter

@@ -1,0 +1,66 @@
+body {
+  font-family: 'FC Iconic', 'Courier New', Courier, monospace;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+fieldset {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px;
+
+  legend {
+    margin: -24px 0px 0px 0px;
+    background: #fff;
+    padding: 0 10px;
+    width: auto;
+    line-height: normal;
+  }
+}
+
+.view-wrapper {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  width: calc(100% - 65px);
+  margin-left: 65px;
+  background: #f0f0f0;
+  transition: all 0.3s;
+  padding: 10px 0;
+}
+
+.content {
+  flex: 1;
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #e5e5e5;
+  transition: all 0.3s;
+  position: relative;
+  // margin-bottom: 1.5rem;
+
+  &-title {
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: #283252;
+      line-height: 1.125;
+    }
+  }
+  &-body {
+    margin-top: 20px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.css-18gu508-Content,
+.css-h0gpo1-ToastElement {
+  font-size: 1.125rem !important;
+}

@@ -1,0 +1,3 @@
+export const POST_GET_SUCCESS = 'POST_GET_SUCCESS'
+export const POST_GET_FAIL = 'POST_GET_FAIL'
+export const POST_CLEAR_DATA = 'POST_CLEAR_DATA'

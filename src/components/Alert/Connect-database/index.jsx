@@ -17,7 +17,7 @@ const ConnectDatabase = ({ handleRouter }) => {
         <div>
           {`ยังไม่ได้ตั้งค่าการเชื่อมต่อฐานข้อมูล `}
           <a
-            href="#database"
+            href="/setting/database"
             onClick={() =>
               handleRouter({
                 page: 'setting',

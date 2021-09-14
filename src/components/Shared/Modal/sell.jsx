@@ -5,7 +5,7 @@ import moment from 'moment'
 import { useToasts } from 'react-toast-notifications'
 import { Button, Col, Form, Modal, Row } from 'react-bootstrap'
 
-import { db } from '../../../actions/firebase'
+import { db } from '../../../actions/Firebase'
 import moneyFormat from '../../../actions/money-format'
 
 import MiniInfo from '../Mini-info'

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { useToasts } from 'react-toast-notifications'
 import { get, set } from 'local-storage'
 import { Button, Col, Form, Row, Tabs, Tab } from 'react-bootstrap'
@@ -9,6 +10,7 @@ import CustomAlloyField from '../Alloy/Column/list'
 
 const SettingPage = ({ anchor }) => {
   const { addToast } = useToasts()
+  const { active } = useParams()
 
   const [apiKey, setApiKey] = useState('')
   const [authDomain, setAuthDomain] = useState('')
@@ -74,7 +76,7 @@ const SettingPage = ({ anchor }) => {
           <h3>ตั้งค่า</h3>
         </div>
         <div className="content-body">
-          <Tabs defaultActiveKey={anchor || 'column'}>
+          <Tabs defaultActiveKey={active || 'column'}>
             <Tab eventKey="column" title="ตั้งค่าคอลัมน์เริ่มต้น">
               <div>
                 <Row className="mt-4">

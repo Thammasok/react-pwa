@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactDataGrid from '@inovua/reactdatagrid-community'
 import { Button, Modal, Tabs, Tab } from 'react-bootstrap'
 
-import { db } from '../../../actions/firebase'
+import { db } from '../../../actions/Firebase'
 import moneyFormat from '../../../actions/money-format'
 
 const gridStyle = { height: 'calc(100vh - 400px)' }

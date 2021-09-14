@@ -1,18 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-types */
-import React from 'react';
-import { Modal } from 'react-bootstrap';
+import React from 'react'
+import { Modal } from 'react-bootstrap'
 
-import AlloyFrom from '../../components/Pages/Alloy/Form';
+import AlloyFrom from '../../components/Pages/Alloy/Form'
 
-export interface UpdateAlloyProps {
-  isShow: boolean;
-  isClose: Function;
-  data: any;
-  submit: Function;
-}
-
-const UpdateAlloy = ({ isShow, isClose, data, submit }: UpdateAlloyProps) => {
+const UpdateAlloy = ({ isShow, isClose, data, submit }) => {
   return (
     <Modal
       show={isShow}
@@ -28,7 +19,7 @@ const UpdateAlloy = ({ isShow, isClose, data, submit }: UpdateAlloyProps) => {
         handleClose={isClose}
       />
     </Modal>
-  );
-};
+  )
+}
 
-export default UpdateAlloy;
+export default UpdateAlloy

@@ -3,7 +3,7 @@ import Setting from '../../views/Setting'
 
 const todoRouter = [
   {
-    path: '/setting',
+    path: '/setting/:active',
     exact: false,
     isAuth: false,
     layout: 'main',

@@ -30,36 +30,36 @@ import './assets/plugin/react-datepicker/main.global.css'
 const store = configStore()
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Suspense fallback="Loading">
-        <ToastProvider>
-          <Router>
-            <Switch>
-              {mainRouter.map(route => {
-                return (
-                  <Route
-                    key={`router-${route.path.replaceAll('/', '-')}`}
-                    path={route.path}
-                    exact={route.exact}
-                    render={() => {
-                      return (
-                        <Layout isAuth={route.isAuth} layout={route.layout}>
-                          <route.component />
-                        </Layout>
-                      )
-                    }}
-                  />
-                )
-              })}
+  // <React.StrictMode>
+  <Provider store={store}>
+    <Suspense fallback="Loading">
+      <ToastProvider>
+        <Router>
+          <Switch>
+            {mainRouter.map(route => {
+              return (
+                <Route
+                  key={`router-${route.path.replaceAll('/', '-')}`}
+                  path={route.path}
+                  exact={route.exact}
+                  render={() => {
+                    return (
+                      <Layout isAuth={route.isAuth} layout={route.layout}>
+                        <route.component />
+                      </Layout>
+                    )
+                  }}
+                />
+              )
+            })}
 
-              <Route path="*" component={NotFoundPage} />
-            </Switch>
-          </Router>
-        </ToastProvider>
-      </Suspense>
-    </Provider>
-  </React.StrictMode>,
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
+        </Router>
+      </ToastProvider>
+    </Suspense>
+  </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 )
 

@@ -3,7 +3,7 @@ import { useToasts } from 'react-toast-notifications'
 import { get, set } from 'local-storage'
 import { Button, Col, Row } from 'react-bootstrap'
 
-import { db } from '../../actions/firebase'
+import { db } from '../../actions/Firebase'
 
 import AlloyTable from './table'
 import NewAlloy from './new-alloy'

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { get } from 'local-storage'
+import React from 'react'
 import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 import {
   Codesandbox,
@@ -9,16 +8,9 @@ import {
   // Search,
 } from 'react-feather'
 
-const Sidebar = ({ currentPage, handleRouter }) => {
-  useEffect(() => {
-    const cp = get('current-page')
-
-    if (cp) {
-      handleRouter({ page: cp })
-    } else {
-      handleRouter({ page: 'tire' })
-    }
-  }, [])
+const Sidebar = () => {
+  const url = window.location.pathname
+  const menu = url.split('/')
 
   return (
     <div className="main-sidebar">
@@ -39,9 +31,8 @@ const Sidebar = ({ currentPage, handleRouter }) => {
               overlay={<Tooltip id="tooltip-tire">ยางรถยนต์</Tooltip>}
             >
               <a
-                href="#tire"
-                className={currentPage === 'tire' ? 'link-active' : ''}
-                onClick={() => handleRouter({ page: 'tire' })}
+                href="/tire"
+                className={menu[1] === 'tire' ? 'link-active' : ''}
               >
                 <Disc className="sidebar-svg" />
               </a>
@@ -53,9 +44,8 @@ const Sidebar = ({ currentPage, handleRouter }) => {
               overlay={<Tooltip id="tooltip-alloy">ล้อแม็ก</Tooltip>}
             >
               <a
-                href="#alloy"
-                className={currentPage === 'alloy' ? 'link-active' : ''}
-                onClick={() => handleRouter({ page: 'alloy' })}
+                href="/alloy"
+                className={menu[1] === 'alloy' ? 'link-active' : ''}
               >
                 <Codesandbox className="sidebar-svg" />
               </a>
@@ -67,9 +57,8 @@ const Sidebar = ({ currentPage, handleRouter }) => {
               overlay={<Tooltip id="tooltip-report">รายงาน</Tooltip>}
             >
               <a
-                href="#report"
-                className={currentPage === 'report' ? 'link-active' : ''}
-                onClick={() => handleRouter({ page: 'report' })}
+                href="/report"
+                className={menu[1] === 'report' ? 'link-active' : ''}
               >
                 <FileText className="sidebar-svg" />
               </a>
@@ -81,9 +70,8 @@ const Sidebar = ({ currentPage, handleRouter }) => {
               overlay={<Tooltip id="tooltip-setting">ตั้งค่า</Tooltip>}
             >
               <a
-                href="#setting"
-                className={currentPage === 'setting' ? 'link-active' : ''}
-                onClick={() => handleRouter({ page: 'setting' })}
+                href="/setting"
+                className={menu[1] === 'setting' ? 'link-active' : ''}
               >
                 <Settings className="sidebar-svg" />
               </a>
